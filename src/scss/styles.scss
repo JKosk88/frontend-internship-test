@@ -1,2 +1,118 @@
 // Here goes your CSS
 @import 'layout/main';
+
+.popup{
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    text-align: center;
+
+    div{
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        position: absolute;
+        left: calc(100% - 20px);
+        top: -10px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        .X{
+            width: 17px;
+            height: 4px;
+            background-color: white;
+            position: absolute;
+            transform: rotateZ(45deg);
+            left: 20%;
+            top: 45%;
+            border-radius: 0;
+            pointer-events: none;
+        }
+        
+        #X-1{
+            transform: rotateZ(-45deg);
+        }
+    }
+
+    h1{
+        padding: 0;
+        margin: 0;
+        font-family: 'Lobster', cursive;
+        font-size: 1.7rem;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        font-size: 0.75rem;
+    
+        [type="email"], [type="password"] {
+            padding: 0;
+            margin: 0;
+            margin-top: 16px;
+            width: 100%;
+            padding-left: 25px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 1px solid rgb(59, 59, 59);
+            box-sizing: border-box;
+        }
+
+        [type="checkbox"] {
+            display: none;
+        }
+
+        label::before {
+            content: '';
+            width: 1rem;
+            height: 1rem;
+            display: inline-block;
+            border: 1px solid black;
+            padding: 0;
+            margin: 0;
+            align-self: start;
+            justify-self: start;
+            margin-right: 5px;
+            transform: translate(0, 25%);
+        }
+
+        label, input{
+            cursor: pointer;
+        }
+
+        label{
+            font-size: 1rem;
+        }
+
+        button{
+            width: 100%;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-top: 30px;
+            border: none;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+input[type="checkbox"]:checked + #agreement-text::before{
+    width: 0.5rem;
+    border-bottom: none;
+    border-right: none;
+    transform: rotateZ(215deg) translate(-50%);
+    margin-right: 15px;
+    transition: .2s;    
+}
+
+@media screen and (max-width:567px) {
+    .popup {
+        width: 60%;
+        padding: 20px;
+    }
+}  
