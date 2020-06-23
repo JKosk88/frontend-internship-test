@@ -1,8 +1,15 @@
 // Here goes your CSS
 @import 'layout/main';
 
+#progress-bar{
+    width: 0;
+    height: 1px;
+    background-color: black;
+    margin-top: 10px;
+}
+
 .popup{
-    position: fixed;
+    position: absolute;
     bottom: 50%;
     right: 50%;
     transform: translate(50%, 50%);
@@ -10,8 +17,10 @@
     padding: 40px;
     border-radius: 5px;
     text-align: center;
+    animation: fadeIn .5s ease-out;
+    display: none;
 
-    div{
+    #close-button{
         width: 30px;
         height: 30px;
         background-color: black;
@@ -86,6 +95,7 @@
 
         label{
             font-size: 1rem;
+            margin-top: 10px;
         }
 
         button{
@@ -97,6 +107,11 @@
             background-color: black;
             color: white;
             cursor: pointer;
+            outline: none;
+
+            &:hover{
+                background-color: $secondary-color;
+            }
         }
     }
 }
@@ -108,6 +123,40 @@ input[type="checkbox"]:checked + #agreement-text::before{
     transform: rotateZ(215deg) translate(-50%);
     margin-right: 15px;
     transition: .2s;    
+}
+
+#success{
+    font-family: 'Lobster', cursive;
+    font-size: 42px;
+    height: 60px;
+    display: none;
+}
+
+#info{
+    font-size: 1rem;
+    margin-top: 5px;
+    color: rgb(218, 0, 36);
+}
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 70;
+    }    
+    100% {
+        opacity: 100;
+    }
 }
 
 @media screen and (max-width:567px) {
